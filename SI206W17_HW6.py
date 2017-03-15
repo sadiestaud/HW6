@@ -12,7 +12,8 @@ import random
 ## [PROBLEM 1]
 print("\n\n***** Problem 1 *****")
 ## We've provided a definition of a class Student, similar to the one you may have seen in lecture. 
-## Add a method to class Student called write_programs which accepts one optional parameter with a default value of 1, and adds the input integer to the self.num_programs instance variable.
+## Add a method to class Student called write_programs which accepts one optional parameter with a default value of 1, 
+# and adds the input integer to the self.num_programs instance variable.
 
 class Student():
     def __init__(self, name, years_at_umich=1, programs_written=0):
@@ -31,7 +32,8 @@ class Student():
         return this_Student.years_UM
 
     # Define the additional method here
-    
+    def write_programs(self, add_program=1):
+        self.num_programs += add_program
 
 #### DONE WITH STUDENT CLASS DEFINITION
 
@@ -56,6 +58,11 @@ print("\n\n***** Problem 2 *****")
 ## The function should return the new list of accumulated -- mapped! -- values.
 ## HINT: you should be able to write this in 5 lines of code or fewer! 
 
+def personal_map(func_obj, list_obj):
+    new_list = []
+    for item in list_obj:
+        new_list.append(func_obj(item))
+    return new_list
 
 
 
@@ -64,9 +71,12 @@ print("\n\n***** Problem 2 *****")
 ## [PROBLEM 3]
 print("\n\n***** Problem 3 *****")
 
-## We've provided the function access_third_elem. Write a lambda function that does exactly the same thing as access_third_elem (you can assume any input it would receive has at least 3 elements in it). Assign that lambda function to the variable sample_func.
+## We've provided the function access_third_elem. Write a lambda function that does exactly the same 
+# thing as access_third_elem (you can assume any input it would receive has at least 3 elements in it). 
+# Assign that lambda function to the variable sample_func.
 
-## Note that we cannot specifically test in the unit tests whether it is a lambda function, but you will not get points for this question unless it is.
+## Note that we cannot specifically test in the unit tests whether it is a lambda function, but you will not 
+# get points for this question unless it is.
 
 ## Provided, do not change:
 def access_third_elem(seq):
@@ -74,7 +84,7 @@ def access_third_elem(seq):
 ## End
 
 # Write your equivalent function and assignment statement here
-
+sample_func = (lambda x: x[2])
 
 ## [PROBLEM 4]
 print("\n\n***** Problem 4 *****")
@@ -86,19 +96,20 @@ programs_written = [10, 500, 20, 131, 46]
 ## End provided code
 
 # Given that provided code, write one line of code to create a zip iterator instance saved in a variable called student_tups, here:
-
+student_tups = zip(names, seniority, programs_written)
 
 # Then write a line of code to cast the iterator to a list (it should end up as a list of tuples). Save that list in a variable called student_tups_list.
+x = zip(names, seniority, programs_written)
+student_tups_list = (list(x))
 
-
-## You can test this out with any code you like here, and similar below other problems, but make sure to comment out any code that uses up the iterator in order to pass the tests!
     
-
 
 ## [PROBLEM 5]
 print("\n\n***** Problem 5 *****")
-# Use a list comprehension to create a list of Student instances out of the student_tups list you just created in Problem 2, and save that list in a variable called programmers. You should make sure you pass these tests before continuing, as you'll need this list for problems later on!
-
+# Use a list comprehension to create a list of Student instances out of the student_tups list 
+# you just created in Problem 2, and save that list in a variable called programmers. 
+# You should make sure you pass these tests before continuing, as you'll need this list for problems later on!
+programmers = [Students(student) for student in student_tups]
 
 
 ## [PROBLEM 6]
